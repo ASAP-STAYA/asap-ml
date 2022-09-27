@@ -179,7 +179,7 @@ class BaseTrainerConfigs(OpenspeechDataclass):
         default=1, metadata={"help": "Seed for training."}
     )
     accelerator: str = field(
-        default="dp", metadata={"help": "Previously known as distributed_backend (dp, ddp, ddp2, etc…)."}
+        default="cuda", metadata={"help": "Previously known as distributed_backend (dp, ddp, ddp2, etc…)."}
     )
     accumulate_grad_batches: int = field(
         default=1, metadata={"help": "Accumulates grads every k batches or as set up in the dict."}
@@ -210,7 +210,7 @@ class BaseTrainerConfigs(OpenspeechDataclass):
                                                "the largest batch size that fits into memory."}
     )
     sampler: str = field(
-        default="else", metadata={"help": "smart: batching with similar sequence length."
+        default="random", metadata={"help": "smart: batching with similar sequence length."
                                            "else: random batch"}
     )
 
